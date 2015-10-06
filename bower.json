@@ -1,0 +1,17 @@
+{
+  "name": "ajmaryo",
+  "version": "0.0.0.0",
+  "dependencies": {
+    "requirejs": "latest",
+    "bootstrap": "latest",
+    "marionette": "latest",
+    "backbone.wreqr": "latest",
+    "backbone.eventbinder": "latest",
+    "backbone.babysitter": "latest",
+    "lodash": "latest",
+    "jquery": "latest",
+    "marionette-dust": "latest",
+    "handlebars": "latest"
+  },
+  "devDependencies": {}
+}
