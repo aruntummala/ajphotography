@@ -19,22 +19,36 @@ module.exports = function(grunt) {
     };
     grunt.initConfig({
         yeoman: yeomanConfig,
+        pkg: grunt.file.readJSON('package.json'),
         watch: {
             livereload: {
                 files: [
-                    'app/*.html',
+                    'app/templates/*.html',
+                    'app/scripts/**/*.js',
                     '{.tmp,app}/styles/{,*/}*.css',
                     '{.tmp,app}/scripts/{,*/}*.js',
                     'app/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ],
-                tasks: ['livereload']
-            }
+                tasks: ['livereload'],
+                options: {
+                    //livereload: true,
+                    reload:true
+                }
+            },
+            files: [
+                'app/templates/*.html',
+                'app/scripts/**/*.js'
+            ],
+            tasks: ['jshint']
         },
         connect: {
             options: {
                 port: 8888,
                 // change this to '0.0.0.0' to access the server from outside
-                hostname: 'localhost'
+                hostname: 'localhost',
+                //keepalive: true,
+                livereload: true,
+                open: 'http://localhost:8888'
             },
             livereload: {
                 options: {
@@ -44,7 +58,8 @@ module.exports = function(grunt) {
                             mountFolder(connect, '.tmp'),
                             mountFolder(connect, 'app')
                         ];
-                    }
+                    },
+                    livereload: true
                 }
             },
             test: {
@@ -97,8 +112,12 @@ module.exports = function(grunt) {
                 options: {
                     baseUrl: 'app/scripts',
                     mainConfigFile: "app/scripts/config.js",
-                    out: 'app/scripts/dist/main.js',
-                    name: 'app'
+                    out: 'build/scripts/main.js',
+                    name: 'app',
+                    optimize: 'none',
+                    preserveLicenseComments: false,
+                    useStrict: true,
+                    wrap: true
                 }
             }
         },
@@ -126,14 +145,13 @@ module.exports = function(grunt) {
                     drop_console: true
                 }
             },
-            dist: 'app/scripts/dist/main.js'
+            dist: 'build/scripts/*.js'
         },
         useminPrepare: {
             html: 'app/index.html',
             options: {
                 root: 'app',
-                dest: 'app/dist',
-                staging: 'app/dist/.tmp',
+                dest: 'build',
                 flow: {
                     steps: {
                         js: ['concat', 'uglify'],
@@ -171,26 +189,29 @@ module.exports = function(grunt) {
             }
         },
         cssmin: {
-            options: {
-                keepSpecialComments: 0,
-                keepBreaks: false,
-                advanced: false
-            },
-            dist: {}
+            dist: {
+                files: {
+                    'build/styles/main.css': [
+                        'build/dist/*.css',
+                        '.tmp/styles/{,*/}*.css',
+                        'app/styles/{,*/}*.css'
+                    ]
+                }
+            }
         },
         htmlmin: {
             dist: {
-                /*files: [{
+                files: [{
                     expand: true,
                     cwd: 'app',
                     src: '*.html',
                     dest: 'build'
-                }]*/
+                }]
             }
         },
         handlebars: {
             options: {
-                cwd: 'app/scripts/templates',
+                cwd: 'app/build/templates',
                 amd: true,
                 commonjs: false,
                 namespace: 'Handlebars'
@@ -232,7 +253,9 @@ module.exports = function(grunt) {
             ]
         }
     });
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.registerTask('server', function(target) {
+        grunt.log.write(target);
         if (target === 'dist') {
             return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
         }

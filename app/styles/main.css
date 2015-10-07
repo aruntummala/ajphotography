@@ -1,31 +1,92 @@
 /*! HTML5 Boilerplate v5.1.0 | MIT License | https://html5boilerplate.com/ */
 
+
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
  * Kroc Camen, and the H5BP dev community and team.
  */
 
+
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
 
 html {
-    color: #222;
-    font-size: 1em;
-    line-height: 1.4;
-}
-html {
-    display: table;
-    margin: auto;
     height: 100%;
-    background-color: #DADFE1;
+    background-color: #000000;
+    overflow: hidden;
 }
 
 body {
-    display: table-cell;
-    vertical-align: middle;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    color: #959595;
+    font-size: 12px;
+    line-height: 25px;
+    overflow: hidden;
+    letter-spacing: 2.3px;
+    overflow: hidden;
+    background-color: #000000;
+    font-family: effra, arial;
 }
+
+p {
+    color: inherit;
+    font-size: 12px;
+    line-height: 25px;
+    margin-bottom: 20px;
+    font-family: effra, arial;
+    letter-spacing: 2.3px;
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    /* color: #ffffff; */
+    /* position: relative; */
+    /* font-family: effra; */
+    /* font-weight: normal; */
+    /* margin-bottom: 20px; */
+    /* letter-spacing: 4px; */
+}
+
+h1 {
+    font-size: 30px;
+    line-height: 36px;
+}
+
+h2 {
+    font-size: 24px;
+    line-height: 31px;
+}
+
+h3 {
+    /* font-size: 20px; */
+    /* line-height: 26px; */
+}
+
+h4 {
+    font-size: 18px;
+    line-height: 24px;
+}
+
+h5 {
+    font-size: 14px;
+    line-height: 22px;
+}
+
+h6 {
+    font-size: 13px;
+    line-height: 20px;
+}
+
+
 /*
  * Remove text-shadow in selection highlight:
  * https://twitter.com/miketaylr/status/12228805301
@@ -44,6 +105,7 @@ body {
     text-shadow: none;
 }
 
+
 /*
  * A better looking default horizontal rule
  */
@@ -57,20 +119,17 @@ hr {
     padding: 0;
 }
 
+
 /*
  * Remove the gap between audio, canvas, iframes,
  * images, videos and the bottom of their containers:
  * https://github.com/h5bp/html5-boilerplate/issues/440
  */
 
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
+audio, canvas, iframe, img, svg, video {
     vertical-align: middle;
 }
+
 
 /*
  * Remove default fieldset styles.
@@ -82,6 +141,7 @@ fieldset {
     padding: 0;
 }
 
+
 /*
  * Allow only vertical resizing of textareas.
  */
@@ -89,6 +149,7 @@ fieldset {
 textarea {
     resize: vertical;
 }
+
 
 /* ==========================================================================
    Browser Upgrade Prompt
@@ -101,29 +162,16 @@ textarea {
     padding: 0.2em 0;
 }
 
+
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* ==========================================================================
    Helper classes
    ========================================================================== */
+
 
 /*
  * Hide visually and from screen readers:
@@ -132,6 +180,7 @@ textarea {
 .hidden {
     display: none !important;
 }
+
 
 /*
  * Hide only visually, but have it available for screen readers:
@@ -149,14 +198,14 @@ textarea {
     width: 1px;
 }
 
+
 /*
  * Extends the .visuallyhidden class to allow the element
  * to be focusable when navigated to via the keyboard:
  * https://www.drupal.org/node/897638
  */
 
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
     clip: auto;
     height: auto;
     margin: 0;
@@ -165,6 +214,7 @@ textarea {
     width: auto;
 }
 
+
 /*
  * Hide visually and from screen readers, but maintain layout
  */
@@ -172,6 +222,7 @@ textarea {
 .invisible {
     visibility: hidden;
 }
+
 
 /*
  * Clearfix: contain floats
@@ -185,15 +236,17 @@ textarea {
  *    `:before` to contain the top-margins of child elements.
  */
 
-.clearfix:before,
-.clearfix:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+.clearfix:before, .clearfix:after {
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
 }
 
 .clearfix:after {
     clear: both;
 }
+
 
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
@@ -205,12 +258,10 @@ textarea {
     /* Style adjustments for viewports that meet the condition */
 }
 
-@media print,
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 1.25dppx),
-       (min-resolution: 120dpi) {
+@media print, (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 1.25dppx), (min-resolution: 120dpi) {
     /* Style adjustments for high resolution devices */
 }
+
 
 /* ==========================================================================
    Print styles.
@@ -219,86 +270,76 @@ textarea {
    ========================================================================== */
 
 @media print {
-    *,
-    *:before,
-    *:after {
+    *, *:before, *:after {
         background: transparent !important;
-        color: #000 !important; /* Black prints faster:
+        color: #000 !important;
+        /* Black prints faster:
                                    http://www.sanbeiji.com/archives/953 */
         box-shadow: none !important;
         text-shadow: none !important;
     }
-
-    a,
-    a:visited {
+    a, a:visited {
         text-decoration: underline;
     }
-
     a[href]:after {
         content: " (" attr(href) ")";
     }
-
     abbr[title]:after {
         content: " (" attr(title) ")";
     }
-
     /*
      * Don't show links that are fragment identifiers,
      * or use the `javascript:` pseudo protocol
      */
-
-    a[href^="#"]:after,
-    a[href^="javascript:"]:after {
+    a[href^="#"]:after, a[href^="javascript:"]:after {
         content: "";
     }
-
-    pre,
-    blockquote {
+    pre, blockquote {
         border: 1px solid #999;
         page-break-inside: avoid;
     }
-
     /*
      * Printing Tables:
      * http://css-discuss.incutio.com/wiki/Printing_Tables
      */
-
     thead {
         display: table-header-group;
     }
-
-    tr,
-    img {
+    tr, img {
         page-break-inside: avoid;
     }
-
     img {
         max-width: 100% !important;
     }
-
-    p,
-    h2,
-    h3 {
+    p, h2, h3 {
         orphans: 3;
         widows: 3;
     }
-
-    h2,
-    h3 {
+    h2, h3 {
         page-break-after: avoid;
     }
 }
+
+.navbar-nav {
+    float: right;
+}
+
 .navbar {
     margin-bottom: 0;
+    border-radius: 0px;
 }
+
 .navbar-default {
     background-color: #000000;
     border-color: #FFFFFF;
 }
+
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
     color: #c0c0c0;
     background-color: #555;
 }
+
+
 /*
 .navbar .navbar-nav{
     display: inline-block;
@@ -315,22 +356,34 @@ textarea {
 }*/
 
 .outer_wrapper {
-    /*position: relative;*/
+    background-color: #131313;
+    height: calc(100% - 120px);
+    position: relative;
+    margin: 60px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    z-index: 3;
 }
+
 .outer_wrapper_grid {
     /*position: relative;*/
 }
+
 .gridRegion {
-    position: relative;
-    top: 5%;
+    /* position: relative; */
+    /* top: 5%; */
 }
+
 .card {
     width: 10%;
     height: 75px;
 }
+
 .row {
     margin: 0;
 }
+
 
 /*.card:hover {
     transform: rotateY(180deg);
@@ -341,14 +394,19 @@ textarea {
 
 /*Flip Transitons*/
 
+
 /* entire container, keeps perspective */
+
 .flip-container {
     perspective: 1000;
 }
-    /* flip the pane when hovered */
-    .flip-container:hover .flipper, .flip-container.hover .flipper {
-        transform: rotateY(180deg);
-    }
+
+
+/* flip the pane when hovered */
+
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+    transform: rotateY(180deg);
+}
 
 .flip-container, .front, .back {
     width: 50px;
@@ -359,7 +417,9 @@ textarea {
     border-bottom: 1px solid #000000;
 }
 
+
 /* flip speed goes here */
+
 .flipper {
     transition: 0.6s;
     transform-style: preserve-3d;
@@ -369,7 +429,9 @@ textarea {
     display: inline-block;
 }
 
+
 /* hide back of pane during swap */
+
 .front, .back {
     backface-visibility: hidden;
     position: absolute;
@@ -379,20 +441,42 @@ textarea {
     display: inline-block;
 }
 
+
 /* front pane, placed above back */
+
 .front {
-    z-index: 2;/* for firefox 31 */
+    z-index: 2;
+    /* for firefox 31 */
     transform: rotateY(0deg);
     width: 100%;
     background-color: #36D7B7;
 }
 
+
 /* back, initially hidden pane */
+
 .back {
     transform: rotateY(180deg);
     background-image: url(../images/catalinaisland50X50.jpg);
 }
-div[class*="row_"]{
+
+div[class*="row_"] {
     border-left: 1px solid #000000;
 }
+
+
 /*Flip Transitons End*/
+
+.thumbnail {
+    padding: 0px;
+    margin-bottom: 0px;
+    border: 0px solid #ddd;
+    border-radius: 0px;
+    background-color: #000;
+}
+img.placesImage {
+    content: url(../images/catalinaisland.jpg);
+}
+img.peopleImage {
+    content: url(../images/people.jpg);
+}
