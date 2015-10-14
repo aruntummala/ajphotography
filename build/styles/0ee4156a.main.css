@@ -7922,11 +7922,17 @@ button.close {
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
+@font-face {
+    font-family: 'roboto';
+    src: url('../fonts/Roboto-Light.ttf');
+    /*src: url('./fonts/icomoon.eot?#iefix') format('embedded-opentype'), url('../../static/fonts/icomoon.woff') format('woff'), url('../../static/fonts/icomoon.ttf') format('truetype'), url('../../static/fonts/icomoon.svg#icomoon') format('svg');*/
+    font-weight: normal;
+    font-style: normal;
+}
 
 html {
     height: 100%;
     background-color: #000000;
-    overflow: hidden;
 }
 
 body {
@@ -7936,11 +7942,9 @@ body {
     color: #959595;
     font-size: 12px;
     line-height: 25px;
-    overflow: hidden;
     letter-spacing: 2.3px;
-    overflow: hidden;
     background-color: #000000;
-    font-family: effra, arial;
+    font-family: roboto !important;
 }
 
 p {
@@ -7948,7 +7952,7 @@ p {
     font-size: 12px;
     line-height: 25px;
     margin-bottom: 20px;
-    font-family: effra, arial;
+    font-family: roboto;
     letter-spacing: 2.3px;
     font-weight: normal;
     -webkit-font-smoothing: antialiased;
@@ -8266,15 +8270,15 @@ textarea {
     float: none;
 }*/
 
-.outer_wrapper {
+.outer_wrapper {/*
     background-color: #131313;
     height: calc(100% - 120px);
     position: relative;
-    margin: 60px;
+    margin: 20px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    z-index: 3;
+    z-index: 3;*/
 }
 
 .outer_wrapper_grid {
@@ -8282,8 +8286,9 @@ textarea {
 }
 
 .gridRegion {
-    /* position: relative; */
-    /* top: 5%; */
+    position: relative;
+    /* top: 20%; */
+    margin-top: 65px;
 }
 
 .card {
@@ -8385,11 +8390,34 @@ div[class*="row_"] {
     border-radius: 0px;
     background-color: #000;
 }
+.thumbnail img { 
+    cursor: pointer;
+}
+
+#links a > img {
+    width: 418px; 
+    height: 240px; 
+}
+
 img.placesImage {
     content: url(../images/4165d8ba.catalinaisland.jpg);
 }
 img.peopleImage {
-    content: url(../images/44067aec.people.jpg);
+    content: url(../images/7f7ab27f.people2.jpg);
+}
+img.kidsImage {
+    content: url(../images/65648298.kids.jpg);
+}
+img.footBallImage {
+    content: url(../images/bbf702da.football.jpg);
+}
+.container { 
+    width: 418px; 
+    height: 240px; 
+    overflow: hidden; 
+}
+.container img { 
+    width: 100%;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -8434,4 +8462,91 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+@charset "UTF-8";
+/*
+ * Bootstrap Image Gallery CSS 3.0.0
+ * https://github.com/blueimp/Bootstrap-Image-Gallery
+ *
+ * Copyright 2013, Sebastian Tschan
+ * https://blueimp.net
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
+
+.blueimp-gallery .modal-body {
+	position: relative;
+	text-align: center;
+	padding: 0 0 56.25% 0;
+	overflow: hidden;
+	cursor: pointer;
+}
+.blueimp-gallery .modal-footer {
+	margin: 0;
+}
+.blueimp-gallery .modal-body img,
+.blueimp-gallery .modal-body .video-content video,
+.blueimp-gallery .modal-body .video-content iframe,
+.blueimp-gallery .modal-body .video-content a {
+	max-width: 100%;
+	max-height: 100%;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+.blueimp-gallery .modal-body .video-content video {
+ 	display: none;
+}
+.blueimp-gallery .modal-body .video-playing video {
+	display: block;
+}
+.blueimp-gallery .modal-body .video-content iframe {
+	width: 100%;
+	height: 100%;
+	border: none;
+	left: 100%;
+}
+.blueimp-gallery .modal-body .video-playing iframe {
+	left: 0;
+}
+.blueimp-gallery .modal-body .video-playing img,
+.blueimp-gallery .modal-body .video-playing a {
+ 	display: none;
+}
+.blueimp-gallery .modal-body .video-content a {
+	cursor: pointer;
+}
+.blueimp-gallery .modal-body .video-content a:after {
+	font-family: "Glyphicons Halflings";
+	-webkit-font-smoothing: antialiased;
+	content: "\e029";
+	font-size: 64px;
+	line-height: 64px;
+	width: 64px;
+	height: 64px;
+	position: absolute;
+	top: 50%;
+	margin: -32px 0 0 -32px;
+}
+.blueimp-gallery .modal-body .video-loading a {
+	background: url(../img/loading.gif) center no-repeat;
+	background-size: 64px 64px;
+}
+.blueimp-gallery .modal-body .video-loading a:after {
+	content: none;
+}
+
+@media screen and (min-width: 768px) {
+  .blueimp-gallery .modal-dialog {
+    right: auto;
+    left: auto;
+	width: auto;
+    max-width: 900px;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
 }

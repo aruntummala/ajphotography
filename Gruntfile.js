@@ -19,6 +19,14 @@ module.exports = function(grunt) {
     };
     grunt.initConfig({
         yeoman: yeomanConfig,
+        bowerRequirejs: {
+            target: {
+              rjsConfig: 'app/scripts/config.js',
+              options: {
+                transitive: true
+              }
+            }
+        },
         pkg: grunt.file.readJSON('package.json'),
         watch: {
             livereload: {
@@ -278,6 +286,7 @@ module.exports = function(grunt) {
         'useminPrepare',
         'concurrent:dist',
         'handlebars',
+        'bowerRequirejs',
         'requirejs',
         'cssmin',
         'concat',

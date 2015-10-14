@@ -11,11 +11,17 @@
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
+@font-face {
+    font-family: 'roboto';
+    src: url('../fonts/Roboto-Light.ttf');
+    /*src: url('./fonts/icomoon.eot?#iefix') format('embedded-opentype'), url('../../static/fonts/icomoon.woff') format('woff'), url('../../static/fonts/icomoon.ttf') format('truetype'), url('../../static/fonts/icomoon.svg#icomoon') format('svg');*/
+    font-weight: normal;
+    font-style: normal;
+}
 
 html {
     height: 100%;
     background-color: #000000;
-    overflow: hidden;
 }
 
 body {
@@ -25,11 +31,9 @@ body {
     color: #959595;
     font-size: 12px;
     line-height: 25px;
-    overflow: hidden;
     letter-spacing: 2.3px;
-    overflow: hidden;
     background-color: #000000;
-    font-family: effra, arial;
+    font-family: roboto !important;
 }
 
 p {
@@ -37,7 +41,7 @@ p {
     font-size: 12px;
     line-height: 25px;
     margin-bottom: 20px;
-    font-family: effra, arial;
+    font-family: roboto;
     letter-spacing: 2.3px;
     font-weight: normal;
     -webkit-font-smoothing: antialiased;
@@ -355,15 +359,15 @@ textarea {
     float: none;
 }*/
 
-.outer_wrapper {
+.outer_wrapper {/*
     background-color: #131313;
     height: calc(100% - 120px);
     position: relative;
-    margin: 60px;
+    margin: 20px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
-    z-index: 3;
+    z-index: 3;*/
 }
 
 .outer_wrapper_grid {
@@ -371,8 +375,9 @@ textarea {
 }
 
 .gridRegion {
-    /* position: relative; */
-    /* top: 5%; */
+    position: relative;
+    /* top: 20%; */
+    margin-top: 65px;
 }
 
 .card {
@@ -474,9 +479,32 @@ div[class*="row_"] {
     border-radius: 0px;
     background-color: #000;
 }
+.thumbnail img { 
+    cursor: pointer;
+}
+
+#links a > img {
+    width: 418px; 
+    height: 240px; 
+}
+
 img.placesImage {
     content: url(../images/catalinaisland.jpg);
 }
 img.peopleImage {
-    content: url(../images/people.jpg);
+    content: url(../images/people2.jpg);
+}
+img.kidsImage {
+    content: url(../images/kids.jpg);
+}
+img.footBallImage {
+    content: url(../images/football.jpg);
+}
+.container { 
+    width: 418px; 
+    height: 240px; 
+    overflow: hidden; 
+}
+.container img { 
+    width: 100%;
 }
