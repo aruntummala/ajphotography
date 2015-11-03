@@ -11,7 +11,8 @@
     "lodash": "latest",
     "jquery": "latest",
     "marionette-dust": "latest",
-    "handlebars": "latest"
+    "handlebars": "latest",
+    "isotope": "~2.2.2"
   },
   "devDependencies": {}
 }

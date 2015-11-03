@@ -6,7 +6,9 @@ define([
     var Router = Backbone.Marionette.AppRouter.extend({
         appRoutes: {
             "": "home",
-            "home": "home"
+            "home": "home",
+            "kenburns": "showKenburns",
+            "gallery": "showIsotopeGallery"
         },
         controller: new MainController()
     });

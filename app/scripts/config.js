@@ -18,15 +18,27 @@ requirejs.config({
         lodash: '../bower_components/lodash/lodash',
         'marionette-dust': '../bower_components/marionette-dust/src/backbone.marionette.dust',
         requirejs: '../bower_components/requirejs/require',
-        blueimp: '../bower_components/blueimp-gallery/js/blueimp-gallery',
-        'blueimp-helper': '../bower_components/blueimp-gallery/js/blueimp-helper',
-        'blueimp-bootstrap-image-gallery': '../bower_components/blueimp-bootstrap-image-gallery/js/bootstrap-image-gallery',
-        'blueimp-gallery': '../bower_components/blueimp-gallery/js/blueimp-gallery',
-        'blueimp-gallery-fullscreen': '../bower_components/blueimp-gallery/js/blueimp-gallery-fullscreen',
-        'blueimp-gallery-indicator': '../bower_components/blueimp-gallery/js/blueimp-gallery-indicator',
-        'blueimp-gallery-video': '../bower_components/blueimp-gallery/js/blueimp-gallery-video',
-        'blueimp-gallery-vimeo': '../bower_components/blueimp-gallery/js/blueimp-gallery-vimeo',
-        'blueimp-gallery-youtube': '../bower_components/blueimp-gallery/js/blueimp-gallery-youtube'
+        migrate: '../js/migrate-1.2.1.min',
+        modernizr: '../js/modernizr-respond',
+        cookie: '../js/cookie',
+        retina: '../js/retina',
+        'jquery-ui': '../js/jquery-ui/jquery-ui.min',
+        'scrollTo-min': '../js/scrollTo-min',
+        easing: '../js/easing.1.3',
+        appear: '../js/appear',
+        imagesloaded: '../js/imagesloaded.pkgd.min',
+        jflickrfeed: '../js/jflickrfeed.min',
+        flexslider: '../js/flexslider/flexslider.min',
+        isotope: '../bower_components/isotope/dist/isotope.pkgd.min',
+        queryloader2: '../js/queryloader2.min',
+        gmap: '../js/gmap.min',
+        nicescroll: '../js/nicescroll.min',
+        fitvids: '../js/fitvids',
+        'magnific-popup': '../js/Magnific-Popup/magnific-popup.min',
+        YTPlayer: '../js/mb.YTPlayer/inc/mb.YTPlayer',
+        mousewheel: '../js/mousewheel.min',
+        lazyload: '../js/lazyload.min',
+        scripts: '../js/scripts'
     },
     shim: {
         backbone: {
@@ -61,6 +73,45 @@ requirejs.config({
             exports: 'blueimp',
             deps: [
                 'blueimp-helper'
+            ]
+        },
+        migrate: {
+            deps: [
+                'jquery'
+            ],
+            exports: 'migrate'
+        },
+        modernizr: {
+            exports: 'Modernizr'
+        },
+        isotope: {
+            exports: 'isotope',
+            deps: [
+                'jquery'
+            ]
+        },
+        scripts: {
+            deps: [
+                'migrate',
+                'modernizr',
+                'cookie',
+                'retina',
+                'jquery-ui',
+                'scrollTo-min',
+                'easing',
+                'appear',
+                'imagesloaded',
+                'jflickrfeed',
+                'flexslider',
+                'isotope',
+                'queryloader2',
+                'gmap',
+                'nicescroll',
+                'fitvids',
+                'magnific-popup',
+                'YTPlayer',
+                'mousewheel',
+                'lazyload'
             ]
         }
     },

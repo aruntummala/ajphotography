@@ -6,6 +6,26 @@ define([
     'views/mainGrid',
     "routers/router",
     "bootstrap",
+    "migrate",
+    "modernizr",
+    "cookie",
+    "retina",
+    "jquery-ui",
+    "scrollTo-min",
+    "easing",
+    "appear",
+    "imagesloaded",
+    "jflickrfeed",
+    "flexslider",
+    "isotope",
+    "queryloader2",
+    "gmap",
+    "nicescroll",
+    "fitvids",
+    "magnific-popup",
+    "YTPlayer",
+    "mousewheel",
+    "lazyload"
 ],
 
 function (_, Backbone, Marionette, mainRegion, MainGrid, Router) {
@@ -21,11 +41,12 @@ function (_, Backbone, Marionette, mainRegion, MainGrid, Router) {
     App.addInitializer(function () {
 
     });
-    App.addRegions({
+    /*App.addRegions({
         mainRegion: mainRegion
     });
 
-    App.mainRegion.show(new MainGrid());
+    App.mainRegion.show(new MainGrid());*/
+    //var mainGrid = new MainGrid();
 
     // Return the instantiated app (there should only be one)
     return App;
