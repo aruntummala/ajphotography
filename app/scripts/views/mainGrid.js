@@ -22,10 +22,10 @@ define([
             //this.initGallery();
         },
         onRender: function() {
-            if (this.showing === 'keburns') {
-                if (this.$el.hasClass('with-padding')) this.$el.removeClass('with-padding');
+            if (this.showing === 'kenburns') {
+                this.$el.removeClass('with-padding');
             } else if (this.showing === "home") {
-                if (this.$el.hasClass('with-padding')) this.$el.removeClass('with-padding');
+                if (!this.$el.hasClass('with-padding')) this.$el.addClass('with-padding');
             } else {
                 if (!this.$el.hasClass('with-padding')) this.$el.addClass('with-padding');
             }

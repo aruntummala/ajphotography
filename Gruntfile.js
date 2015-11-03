@@ -13,12 +13,12 @@ module.exports = function(grunt) {
     // load all grunt tasks
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
     // configurable paths
-    var yeomanConfig = {
+/*    var yeomanConfig = {
         app: 'app',
         dist: 'dist'
-    };
+    };*/
     grunt.initConfig({
-        yeoman: yeomanConfig,
+        /*yeoman: yeomanConfig,
         bowerRequirejs: {
             target: {
               rjsConfig: 'app/scripts/config.js',
@@ -26,7 +26,7 @@ module.exports = function(grunt) {
                 transitive: true
               }
             }
-        },
+        },*/
         pkg: grunt.file.readJSON('package.json'),
         watch: {
             livereload: {
@@ -286,7 +286,7 @@ module.exports = function(grunt) {
         'useminPrepare',
         'concurrent:dist',
         'handlebars',
-        'bowerRequirejs',
+        //'bowerRequirejs',
         'requirejs',
         'cssmin',
         'concat',
