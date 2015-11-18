@@ -2,24 +2,20 @@ define([
     'jquery',
     'backbone',
     'marionette',
-    'handlebars',
-    'text!templates/mainGrid.html',
-    'isotope'
-    ], function($, Backbone, Marionette, Handlebars, MainGrid, Isotope) {
+    'templates',
+    'isotope',
+    'share',
+    'jquery-bridget',
+    ], function($, Backbone, Marionette, Mytemplates, Isotope, ShareButton) {
     var MainGrid = Backbone.Marionette.ItemView.extend({
-        template: Handlebars.compile($($.parseHTML(MainGrid)).filter("#mainGrid").html()),
+        template: Mytemplates["mainGrid.html"],
         el: '.main-container',
         initialize: function() {
             var me = this;
-            console.log("mainGrid");
-            require(['../bower_components/jquery-bridget/jquery.bridget'],function(){
-                $.bridget( 'isotope', Isotope );
-                me.render();
-            });
-            //require('isotope');
+            $.bridget('isotope', Isotope);
             this.showing = this.options.showing;
-            
-            //this.initGallery();
+            me.render();
+            var share = new ShareButton();
         },
         onRender: function() {
             if (this.showing === 'kenburns') {
@@ -29,6 +25,10 @@ define([
             } else {
                 if (!this.$el.hasClass('with-padding')) this.$el.addClass('with-padding');
             }
+            $('nav ul li a').on('click', function(e) {
+                $(e.currentTarget).parent().parent().find("[class=active]").removeClass('active');
+                $(e.currentTarget).addClass('active');
+            });
             var win_h = $(window).height(),
                 win_w = $(window).width(),
                 home_slides_arr = [],
@@ -1476,7 +1476,6 @@ define([
                 });
             }
         }
-        
     });
     return MainGrid;
 });

@@ -13,10 +13,10 @@ module.exports = function(grunt) {
     // load all grunt tasks
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
     // configurable paths
-/*    var yeomanConfig = {
-        app: 'app',
-        dist: 'dist'
-    };*/
+    /*    var yeomanConfig = {
+            app: 'app',
+            dist: 'dist'
+        };*/
     grunt.initConfig({
         /*yeoman: yeomanConfig,
         bowerRequirejs: {
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
                 tasks: ['livereload'],
                 options: {
                     //livereload: true,
-                    reload:true
+                    reload: true
                 }
             },
             files: [
@@ -125,7 +125,8 @@ module.exports = function(grunt) {
                     optimize: 'none',
                     preserveLicenseComments: false,
                     useStrict: true,
-                    wrap: true
+                    wrap: true,
+                    include: ['../bower_components/requirejs/require.js'],
                 }
             }
         },
@@ -135,8 +136,8 @@ module.exports = function(grunt) {
                     src: [
                         'build/scripts/{,*/}*.js',
                         'build/styles/{,*/}*.css',
-                        'build/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
-                        'build/styles/fonts/*'
+                        //`'build/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
+                        //'build/styles/fonts/*'
                     ]
                 }
             }
@@ -160,6 +161,7 @@ module.exports = function(grunt) {
             options: {
                 root: 'app',
                 dest: 'build',
+                staging: 'build/.tmp',
                 flow: {
                     steps: {
                         js: ['concat', 'uglify'],
@@ -173,7 +175,14 @@ module.exports = function(grunt) {
             html: ['build/{,*/}*.html'],
             css: ['build/styles/{,*/}*.css'],
             options: {
-                dirs: ['build']
+                dirs: ['build'],
+                assetsDirs: ['build', 'build/images'],
+                patterns: {
+                    // FIXME While usemin won't have full support for revved files we have to put all references manually here
+                    js: [
+              [/(images\/.*?\.(?:gif|jpeg|jpg|png|webp|svg))/gm, 'Update the JS to reference our revved images']
+          ]
+                }
             }
         },
         imagemin: {
@@ -202,7 +211,8 @@ module.exports = function(grunt) {
                     'build/styles/main.css': [
                         'build/dist/*.css',
                         '.tmp/styles/{,*/}*.css',
-                        'app/styles/{,*/}*.css'
+                        'app/styles/{,*/}*.css',
+                        'app/includes/*/**.css'
                     ]
                 }
             }
@@ -219,10 +229,13 @@ module.exports = function(grunt) {
         },
         handlebars: {
             options: {
-                cwd: 'app/build/templates',
+                processName: function(filePath) {
+                    var newfilePath = filePath.replace(/(.*)\/scripts\/templates\//g, '');
+                    return newfilePath;
+                },
                 amd: true,
                 commonjs: false,
-                namespace: 'Handlebars'
+                namespace: 'Mytemplates'
             },
             all: {
                 files: {
@@ -242,8 +255,25 @@ module.exports = function(grunt) {
                         '*.{ico,txt}',
                         '.htaccess',
                         'images/{,*/}*.{webp,gif}',
-                        'styles/fonts/*'
+                        'styles/fonts/*',
                     ]
+                },{
+                    expand: true,
+                    cwd: 'app/includes',
+                    src: '**/*',
+                    dest: 'build/includes'
+                },{
+                    expand: true,
+                    flatten: true,
+                    src: 'includes/**/*',
+                    cwd: 'app',
+                    dest: 'build/styles/fonts'
+                },{
+                    expand: true,
+                    flatten: true,
+                    src: 'fonts/**/*',
+                    cwd: 'app',
+                    dest: 'build/fonts'
                 }]
             }
         },
@@ -292,7 +322,7 @@ module.exports = function(grunt) {
         'concat',
         'uglify',
         'copy',
-        'rev',
+        //'rev',
         'usemin'
     ]);
     grunt.registerTask('default', [

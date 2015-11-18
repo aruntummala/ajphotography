@@ -2,11 +2,9 @@ define([
     'jquery',
     'marionette',
     'regions/mainRegion',
-    'handlebars',
-    'views/mainGrid',
-    'text!templates/gallery_kenburns.html',
-    'text!templates/isotopeGallery.html'
-], function($, Marionette, MainRegion, Handlebars, MainGridView, MainGridTemplate, Isotope) {
+    'templates',
+    'views/mainGrid'
+], function($, Marionette, MainRegion, Mytemplates, MainGridView) {
     var MainController = Marionette.Object.extend({
         initialize: function() {
             //MainRegion.show(new GridView());
@@ -18,13 +16,13 @@ define([
         },
         showKenburns: function() {
             var mainGrid = new MainGridView({
-                template: Handlebars.compile($($.parseHTML(MainGridTemplate)).filter("#galleryKenburns").html()),
+                template: Mytemplates["gallery_kenburns.html"],
                 showing: 'kenburns'
             });
         },
         showIsotopeGallery: function() {
             var mainGrid = new MainGridView({
-                template: Handlebars.compile($($.parseHTML(Isotope)).filter("#isotopeGallery").html()),
+                template: Mytemplates["isotopeGallery.html"],
                 showing: 'gallery'
             });
         }

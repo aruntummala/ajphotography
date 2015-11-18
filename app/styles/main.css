@@ -511,3 +511,16 @@ img.footBallImage {
 .cursor-pointer{
     cursor: pointer;
 }
+.sharer-0 {
+    top: -45px;
+    right: 60px;
+    float: right;
+}
+.sharer-0  .sb-social.sb-center.active.sb-top {
+    z-index: 3;
+    float: left;
+    left: -55%;
+}
+.sharer-0 .sb-social ul li.enabled {
+    background: #000000;
+}

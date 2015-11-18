@@ -12,7 +12,7 @@ function ($, Backbone, App) {
     App.start();
 
     // Trigger the initial route and enable HTML5 History API support
-    Backbone.history.start({ pushState: true, root: App.root });
+    Backbone.history.start({ pushState: false, root: App.root });
 
     // All navigation that is relative should be passed through the navigate
     // method, to be processed by the router. If the link has a `data-bypass`

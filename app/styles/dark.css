@@ -67,6 +67,7 @@ Author URL: http://themeforest.net/user/codesymbol/
     }
     a {
         color: #ffffff;
+        cursor: pointer;
     }
     h1, h2, h3, h4, h5, h6 {
         color: #ffffff;

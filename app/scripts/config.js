@@ -29,7 +29,7 @@ requirejs.config({
         imagesloaded: '../js/imagesloaded.pkgd.min',
         jflickrfeed: '../js/jflickrfeed.min',
         flexslider: '../js/flexslider/flexslider.min',
-        isotope: '../bower_components/isotope/dist/isotope.pkgd.min',
+        isotope: '../bower_components/isotope/dist/isotope.pkgd',
         queryloader2: '../js/queryloader2.min',
         gmap: '../js/gmap.min',
         nicescroll: '../js/nicescroll.min',
@@ -38,7 +38,9 @@ requirejs.config({
         YTPlayer: '../js/mb.YTPlayer/inc/mb.YTPlayer',
         mousewheel: '../js/mousewheel.min',
         lazyload: '../js/lazyload.min',
-        scripts: '../js/scripts'
+        scripts: '../js/scripts',
+        'jquery-bridget': '../bower_components/jquery-bridget/jquery.bridget',
+        share: '../bower_components/share-button'
     },
     shim: {
         backbone: {
@@ -89,6 +91,9 @@ requirejs.config({
             deps: [
                 'jquery'
             ]
+        },
+        share: {
+            exports: 'share'
         },
         scripts: {
             deps: [
