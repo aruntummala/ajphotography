@@ -524,3 +524,6 @@ img.footBallImage {
 .sharer-0 .sb-social ul li.enabled {
     background: #000000;
 }
+.gallery-images.style-icons .images .img .preview {
+    left: 50%;
+}

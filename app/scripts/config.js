@@ -40,7 +40,8 @@ requirejs.config({
         lazyload: '../js/lazyload.min',
         scripts: '../js/scripts',
         'jquery-bridget': '../bower_components/jquery-bridget/jquery.bridget',
-        share: '../bower_components/share-button'
+        share: '../bower_components/share-button',
+        cloudinary: '../bower_components/cloudinary-jquery-file-upload/cloudinary-jquery-file-upload'
     },
     shim: {
         backbone: {
@@ -49,6 +50,10 @@ requirejs.config({
                 'jquery'
             ],
             exports: 'Backbone'
+        },
+        cloudinary: {
+            deps: ['jquery'],
+            exports: 'cloudinary'
         },
         marionette: {
             deps: [

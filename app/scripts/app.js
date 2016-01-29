@@ -1,10 +1,12 @@
 define([
+    "jquery",
     "underscore",
     "backbone",
     "marionette",
     "regions/mainRegion",
     'views/mainGrid',
     "routers/router",
+    "cloudinary",
     "bootstrap",
     "migrate",
     "modernizr",
@@ -25,10 +27,10 @@ define([
     "magnific-popup",
     "YTPlayer",
     "mousewheel",
-    "lazyload"
+    "lazyload",
 ],
 
-function (_, Backbone, Marionette, mainRegion, MainGrid, Router) {
+function ($, _, Backbone, Marionette, mainRegion, MainGrid, Router, Cloudinary) {
 
     var App = new Backbone.Marionette.Application();
 
@@ -41,6 +43,9 @@ function (_, Backbone, Marionette, mainRegion, MainGrid, Router) {
     App.addInitializer(function () {
 
     });
+    var cloudinary = new Cloudinary();
+    cloudinary.config({ cloud_name: 'ajphotography', api_key: '868769421546832'});
+    //$.cloudinary.config({ cloud_name: 'ajphotography', api_key: '868769421546832'})
     /*App.addRegions({
         mainRegion: mainRegion
     });

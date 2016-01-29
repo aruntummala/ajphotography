@@ -10,12 +10,18 @@ define([
     var MainGrid = Backbone.Marionette.ItemView.extend({
         template: Mytemplates["mainGrid.html"],
         el: '.main-container',
+        events: {
+            'click .mobile-navigation': 'toggle'
+        },
         initialize: function() {
             var me = this;
             $.bridget('isotope', Isotope);
             this.showing = this.options.showing;
             me.render();
             var share = new ShareButton();
+        },
+        toggle: function() {
+            //$('.mobile-navigation').toggle();
         },
         onRender: function() {
             if (this.showing === 'kenburns') {
@@ -751,7 +757,7 @@ define([
             ============================================================================================================================================
             ============================================================================================================================================*/
             // Dropdown effect
-            $("header nav li").hover(function() {
+            /*$("header nav li").hover(function() {
                 if ($(this).children('ul').length > 0 && !$(".mobile-navigation").is(':visible')) {
                     var children = $(this).find('> ul'),
                         elem = $(this),
@@ -769,6 +775,7 @@ define([
             });
             // Unfolding sub-menus in responsive mode.
             $("header nav li a").click(function(event) {
+                event.preventDefault();
                 if ($(this).parent().children('ul').length > 0 && $(".mobile-navigation").is(':visible')) {
                     event.preventDefault();
                     $(this).parent().find('> ul').slideToggle(300);
@@ -781,12 +788,13 @@ define([
                     cursorcolor: "#959595",
                     cursorborder: "0px solid #fff",
                 });
-            }
+            }*/
             // Mobile navigation
-            $(".mobile-navigation").click(function(event) {
-                event.preventDefault();
-                $("header nav").slideToggle(100);
-            });
+            /*$(".mobile-navigation").on('click', function(event) {
+                //event.preventDefault();
+                //event.stopPropagation();
+                $("header nav").toggle();
+            });*/
             // Adding arrows for mobile menu
             if ($("header").length > 0) {
                 $("header nav .mCSB_container > ul > li > a").each(function(index, el) {

@@ -190,7 +190,7 @@ module.exports = function(grunt) {
                 files: [{
                     expand: true,
                     cwd: 'app/images',
-                    src: '{,*/}*.{png,jpg,jpeg}',
+                    src: '{,*/}*.{png,jpg,jpeg,JPG}',
                     dest: 'build/images'
                 }]
             }
@@ -252,9 +252,9 @@ module.exports = function(grunt) {
                     cwd: 'app',
                     dest: 'build',
                     src: [
-                        '*.{ico,txt}',
+                        '*.{ico,png,txt}',
                         '.htaccess',
-                        'images/{,*/}*.{webp,gif}',
+                        'images/{,*/}*.{ico,png,txt,webp,gif}',
                         'styles/fonts/*',
                     ]
                 },{
