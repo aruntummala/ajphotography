@@ -3,24 +3,26 @@ define([
     'marionette',
     'regions/mainRegion',
     'templates',
-    'views/mainGrid'
-], function($, Marionette, MainRegion, Mytemplates, MainGridView) {
+    'views/mainGrid',
+    'views/header'
+], function ($, Marionette, MainRegion, Mytemplates, MainGridView, HeaderView) {
     var MainController = Marionette.Object.extend({
-        initialize: function() {
+        initialize: function () {
             //MainRegion.show(new GridView());
         },
-        home: function() {
+        home: function () {
             new MainGridView({
                 showing: 'home'
             });
+            new HeaderView();
         },
-        showKenburns: function() {
+        showKenburns: function () {
             var mainGrid = new MainGridView({
                 template: Mytemplates["gallery_kenburns.html"],
                 showing: 'kenburns'
             });
         },
-        showIsotopeGallery: function() {
+        showIsotopeGallery: function () {
             var mainGrid = new MainGridView({
                 template: Mytemplates["isotopeGallery.html"],
                 showing: 'gallery'
